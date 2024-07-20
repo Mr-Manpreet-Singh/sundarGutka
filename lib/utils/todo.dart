@@ -20,8 +20,18 @@
 
 
 // TODO LEFT
+//  path errors found my mummy
+  // - page 162 (18 -> 6)word nirmal page 10(8 ->1) sukhmani sahib, 7th astpati 3rd poudi (pg58) send to mummy for verification
+  // - Tav-Parsad Savaiye starting  ੴ ਸਤਿਗੁਰ ਪ੍ਰਸਾਦਿ ਪਾਤਸਾਹੀ ॥੧੦॥
+  // - ReshrasSahib starting        ਰਹਿਰਾਸ ਸਾਹਿਬ
+  // - ReshrasSahib page 43
+  // - Kirtan Sohila page 4 
+  // - ardas page 6 
+
+// when we change the language how we will deal with the index of page 
 // add english and hindi Path
 // add alanlytics .. 
+  
 //  app logo | name
 // app Size Optimization
 //  google remote config.. 
@@ -30,7 +40,7 @@
 // TODO Version 2
 
 // screen awake feature
-// Exit popup
+
 
 
 

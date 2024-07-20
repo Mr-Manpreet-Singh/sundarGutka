@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:sundar_gutka/providers/page_provider.dart';
+import 'package:sundar_gutka/providers/page_index_provider.dart';
 import 'package:sundar_gutka/providers/settings_provider.dart';
 import 'package:sundar_gutka/utils/utils.dart';
 
