@@ -1,0 +1,22 @@
+>>Connection Steps
+1. create project in firebase and connect with app using CLI
+2. add dev dependencies
+      firebase analytics 
+      firebase core
+
+>> Creating Custom Events
+
+
+
+
+
+
+
+
+
+Commands 
+   firebase projects:list
+        - Check firebase CLI is working or not          
+
+Shortcuts
+   adove search bar ">add dependencies"
