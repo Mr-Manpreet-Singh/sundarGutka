@@ -20,6 +20,7 @@
 
 
 // TODO LEFT
+// custom event added to track user_settings in shared prefrences file... check the analytics dashboard tomorrow
 //  path errors found my mummy
   // - page 162 (18 -> 6)word nirmal page 10(8 ->1) sukhmani sahib, 7th astpati 3rd poudi (pg58) send to mummy for verification
   // - Tav-Parsad Savaiye starting  ੴ ਸਤਿਗੁਰ ਪ੍ਰਸਾਦਿ ਪਾਤਸਾਹੀ ॥੧੦॥

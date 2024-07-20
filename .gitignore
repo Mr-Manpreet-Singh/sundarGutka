@@ -45,3 +45,4 @@ app.*.map.json
 
 # added by me
 android/app/google-services.json
+lib/learnings/analytics

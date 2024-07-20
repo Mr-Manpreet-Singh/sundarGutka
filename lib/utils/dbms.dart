@@ -1,10 +1,14 @@
 
 
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sundar_gutka/data/model.dart';
 
 class SharedPrefsHelper {
+
+  final FirebaseAnalytics fAnalytics = FirebaseAnalytics.instance;
+
   static const String keyIsPageView = 'isPageView';
   static const String keyFontSize = 'fontSize';
   static const String keyFontWeight = 'fontWeight';
@@ -16,6 +20,19 @@ class SharedPrefsHelper {
     await prefs.setInt(keyFontSize, settings.fontSize);
     await prefs.setInt(keyFontWeight, settings.fontWeight);
     await prefs.setString(keyLanguage, settings.language.toString());
+
+    // Firebase Analytics
+    fAnalytics.setAnalyticsCollectionEnabled(true);
+
+ await fAnalytics.logEvent(
+            name:'user_settings',          
+            parameters: {
+                  "fontSize" : settings.fontSize,
+                  "fontWeight" : settings.fontWeight,
+                  "isPageView":settings.isPageView,
+                  "language": settings.language
+            } 
+            );
   }
 
   Future<SettingModel> loadSettings() async {
