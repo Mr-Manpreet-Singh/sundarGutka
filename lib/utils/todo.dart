@@ -13,6 +13,8 @@
     // - language
     // - page index
 //  save font Size,boldness,pageve/scrollview,lang in dbms
+// exit confirmation alert dialogue box
+// state management for scroll view
 
 
 
@@ -20,7 +22,6 @@
 // TODO LEFT
 // add english and hindi Path
 // add alanlytics .. 
-// state management for scroll view
 //  app logo | name
 // app Size Optimization
 //  google remote config.. 

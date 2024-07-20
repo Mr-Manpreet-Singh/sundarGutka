@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sundar_gutka/providers/scroll_provider.dart';
 import 'package:sundar_gutka/screens/setting.dart';
-import 'package:sundar_gutka/utils/provider.dart';
+import 'package:sundar_gutka/providers/settings_provider.dart';
 import 'package:sundar_gutka/utils/utils.dart';
 
-class PathScrollView extends StatelessWidget {
+class PathScrollView extends ConsumerWidget {
   const PathScrollView({
     super.key,
     required this.selectedPath,
@@ -22,8 +23,18 @@ class PathScrollView extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final scrollController = ScrollController();
+  Widget build(BuildContext context, WidgetRef ref) {
+    final scrollPosition = ref.read(scrollPositionProvider);
+    final scrollController = ScrollController(
+        initialScrollOffset: scrollPosition[selectedPath]?.offset ?? 0.0
+        );
+
+    scrollController.addListener(() {
+      ref
+          .read(scrollPositionProvider.notifier)
+          .updateScrollPosition(selectedPath, scrollController.offset);
+    });
+
     return Scaffold(
       appBar: AppBar(
         actions: [
