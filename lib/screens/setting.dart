@@ -64,7 +64,10 @@ class SettingScreen extends StatelessWidget {
               child: Row(
                 // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Font Size",style: settingScreenTextStyle,),
+                  const Text(
+                    "Font Size",
+                    style: myF16TextStyle,
+                  ),
                   // const SizedBox(width: 80),
                   const Expanded(child: SizedBox()),
                   Consumer(builder: (context, ref, child) {
@@ -72,10 +75,11 @@ class SettingScreen extends StatelessWidget {
                         settingsProvider.select((value) => value.fontSize));
                     return Row(
                       children: [
-                        myIconButton(ref, _decreaseFontSize, Icons.remove_circle),
-                        Text(fontSize.toInt().toString(),style: settingScreenTextStyle),
+                        myIconButton(
+                            ref, _decreaseFontSize, Icons.remove_circle),
+                        Text(fontSize.toInt().toString(),
+                            style: myF16TextStyle),
                         myIconButton(ref, _increaseFontSize, Icons.add_circle),
-
                       ],
                     );
                   })
@@ -93,16 +97,19 @@ class SettingScreen extends StatelessWidget {
               child: Row(
                 // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text("Font Boldness",style: settingScreenTextStyle),
+                  const Text("Font Boldness", style: myF16TextStyle),
                   const Expanded(child: SizedBox()),
                   Consumer(builder: (context, ref, child) {
                     final fontWeight = ref.watch(
                         settingsProvider.select((value) => value.fontWeight));
                     return Row(
                       children: [
-                        myIconButton(ref, _decreaseFontBoldness, Icons.remove_circle),
-                        Text(" ${fontWeight.toString()} ",style: settingScreenTextStyle),
-                        myIconButton(ref, _increaseFontBoldness, Icons.add_circle),
+                        myIconButton(
+                            ref, _decreaseFontBoldness, Icons.remove_circle),
+                        Text(" ${fontWeight.toString()} ",
+                            style: myF16TextStyle),
+                        myIconButton(
+                            ref, _increaseFontBoldness, Icons.add_circle),
                       ],
                     );
                   }),
@@ -119,7 +126,7 @@ class SettingScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text("Scroll View",style: settingScreenTextStyle),
+                  const Text("Scroll View", style: myF16TextStyle),
                   // const SizedBox(width: 20),
                   Consumer(builder: (context, ref, child) {
                     final isPageView = ref.watch(
@@ -133,7 +140,7 @@ class SettingScreen extends StatelessWidget {
                     );
                   }),
                   // const SizedBox(width: 20),
-                  const Text("Page View",style: settingScreenTextStyle),
+                  const Text("Page View", style: myF16TextStyle),
                 ],
               ),
             ),
@@ -146,11 +153,11 @@ class SettingScreen extends StatelessWidget {
   IconButton myIconButton(WidgetRef ref, Function fn, IconData icon) {
     return IconButton(
       onPressed: () => fn(ref),
-      icon:Icon(
-          size: 30,
-            icon,
-            color: myActionColor,
-          ),
+      icon: Icon(
+        size: 30,
+        icon,
+        color: myActionColor,
+      ),
     );
   }
 }

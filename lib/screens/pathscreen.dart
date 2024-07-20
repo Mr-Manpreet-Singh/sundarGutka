@@ -26,19 +26,16 @@ class PathScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final isPageView =
         ref.watch(settingsProvider.select((value) => value.isPageView));
-    // final length = splitStringToLimitedParts(tavParsadSavaiyePunjabi.toString()).length;
-    // TODO
-    // final length = (fullPathPunjabi[selectedPath])!.length;
     final length =
         splitByEmptyLinesAndMaxLength(fullPathPunjabi[selectedPath]!, 400)
             .length;
 
     return (isPageView && length > 1)
-        ? PathPageView(
-            selectedPath: selectedPath,
-            navigateToSettingScreen: _navigateToSettings,
-            lastPageNo: length,
-          )
-        : PathScrollView(selectedPath: selectedPath);
+            ? PathPageView(
+                selectedPath: selectedPath,
+                navigateToSettingScreen: _navigateToSettings,
+                lastPageNo: length,
+              )
+            : PathScrollView(selectedPath: selectedPath);
   }
 }

@@ -13,28 +13,29 @@ class LanguageSelectionScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-   Language language =  ref.watch(settingsProvider.select((value) => value.language));
+    Language language =
+        ref.watch(settingsProvider.select((value) => value.language));
 
     return Center(
       child: Wrap(
         spacing: 10.0,
         children: [
           ChoiceChip(
-            label: const Text('English',style: settingScreenTextStyle),
+            label: const Text('English', style: myF16TextStyle),
             selected: language == Language.english,
             onSelected: (bool selected) {
               _onChipSelected(Language.english, ref);
             },
           ),
           ChoiceChip(
-            label: const Text('Hindi',style: settingScreenTextStyle),
-            selected:language == Language.hindi,
+            label: const Text('Hindi', style: myF16TextStyle),
+            selected: language == Language.hindi,
             onSelected: (bool selected) {
               _onChipSelected(Language.hindi, ref);
             },
           ),
           ChoiceChip(
-            label: const Text('Punjabi',style: settingScreenTextStyle),
+            label: const Text('Punjabi', style: myF16TextStyle),
             selected: language == Language.punjabi,
             onSelected: (bool selected) {
               _onChipSelected(Language.punjabi, ref);

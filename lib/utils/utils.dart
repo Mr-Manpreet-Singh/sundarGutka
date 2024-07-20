@@ -14,9 +14,10 @@ const Color myActionColorLight = Colors.black12;
 const Color myScrollbarThumbColor = myBackgroundColor;
 
 //Text Styles
-const TextStyle settingScreenTextStyle = TextStyle(fontSize: 16);
-const TextStyle homeScreenTextStyle = TextStyle(fontSize: 22);
-const TextStyle pageNumberTextStyle = TextStyle(fontSize: 14);
+const TextStyle myF18TextStyle = TextStyle(fontSize: 18);
+const TextStyle myF16TextStyle = TextStyle(fontSize: 16);
+const TextStyle myF22TextStyle = TextStyle(fontSize: 22);
+const TextStyle myF14TextStyle = TextStyle(fontSize: 14);
 const TextStyle gotextTextStyle =
     TextStyle(fontSize: 19, color: myActionColor, fontWeight: FontWeight.w500);
 
@@ -31,7 +32,7 @@ String sampleText(Language lang) {
       return "ਜਪੁਜੀ ਸਾਹਿਬ";
   }
 }
-// TODO   dynamic 
+
 Map<String, String> mapOfPathOfSelectedLanguage(Language lang) {
   switch (lang) {
     case Language.hindi:
@@ -53,7 +54,7 @@ Map<String, String> mapOfPathOfSelectedLanguage(Language lang) {
 //   }
 // }
 
-List<String> splitByEmptyLinesAndMaxLength(String inputString,int length) {
+List<String> splitByEmptyLinesAndMaxLength(String inputString, int length) {
   final lines = inputString.split('\n');
   final result = <String>[];
   var currentChunk = '';
@@ -76,7 +77,7 @@ List<String> splitByEmptyLinesAndMaxLength(String inputString,int length) {
   return mergeChunks(result, length);
 }
 
-List<String> mergeChunks(List<String> chunks,int length) {
+List<String> mergeChunks(List<String> chunks, int length) {
   final result = <String>[];
   var currentChunk = '';
 

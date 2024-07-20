@@ -46,19 +46,19 @@ class _PathPageViewState extends ConsumerState<PathPageView> {
         .updateIndex(widget.selectedPath, index);
   }
 
-  void _moveToNextPage() {
-    _pageController.nextPage(
-      duration: const Duration(milliseconds: 300), // Add animation duration
-      curve: Curves.ease, // Customize animation curve if desired
-    );
-  }
+  // void _moveToNextPage() {
+  //   _pageController.nextPage(
+  //     duration: const Duration(milliseconds: 300), // Add animation duration
+  //     curve: Curves.ease, // Customize animation curve if desired
+  //   );
+  // }
 
-  void _moveToPreviousPage() {
-    _pageController.previousPage(
-      duration: const Duration(milliseconds: 300), // Add animation duration
-      curve: Curves.ease, // Customize animation curve if desired
-    );
-  }
+  // void _moveToPreviousPage() {
+  //   _pageController.previousPage(
+  //     duration: const Duration(milliseconds: 300), // Add animation duration
+  //     curve: Curves.ease, // Customize animation curve if desired
+  //   );
+  // }
 
   void _goToPage(int newPage, int length) {
     if (newPage > -1 && newPage <= length) {
@@ -163,7 +163,7 @@ class _PathPageViewState extends ConsumerState<PathPageView> {
                       margin: const EdgeInsets.only(bottom: 16),
                       child: Text(
                         "${index + 1}  of  ${widget.lastPageNo}",
-                        style: pageNumberTextStyle,
+                        style: myF14TextStyle,
                       ),
                     ),
                     Consumer(builder: (context, ref, child) {
@@ -177,11 +177,8 @@ class _PathPageViewState extends ConsumerState<PathPageView> {
                           mapOfPathOfSelectedLanguage(language);
 
                       return Text(
-                        // TODO
-                        // selectedFullPath[widget.selectedPath]![index],
                         splitByEmptyLinesAndMaxLength(
                             selectedFullPath[widget.selectedPath]!, 400)[index],
-
                         style: TextStyle(
                           fontSize: fontSize.toDouble(),
                           fontWeight: FontWeight.values[fontWeight],

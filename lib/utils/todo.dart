@@ -18,11 +18,11 @@
 
 
 // TODO LEFT
-// state management for scroll view
-// add alanlytics .. 
-// app Size Optimization
 // add english and hindi Path
+// add alanlytics .. 
+// state management for scroll view
 //  app logo | name
+// app Size Optimization
 //  google remote config.. 
 
 
