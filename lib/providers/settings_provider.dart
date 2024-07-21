@@ -13,7 +13,7 @@ class SettingsNotifier extends StateNotifier<SettingModel> {
   SettingsNotifier() : super(SettingModel(
             fontSize: 26,
             fontWeight: FontWeight.normal.value ~/ 100,
-            isPageView: true,
+            isPageView: false,
             language: Language.punjabi)) {
     _loadInitialSettings();
   }

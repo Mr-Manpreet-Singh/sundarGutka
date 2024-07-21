@@ -43,16 +43,6 @@ Map<String, String> mapOfPathOfSelectedLanguage(Language lang) {
       return fullPathPunjabi;
   }
 }
-// Map<PathList, String> mapOfPathOfSelectedLanguage(Language lang) {
-//   switch (lang) {
-//     case Language.hindi:
-//       return fullPathHindi;
-//     case Language.english:
-//       return fullPathEnglish;
-//     default:
-//       return fullPathPunjabi;
-//   }
-// }
 
 List<String> splitByEmptyLinesAndMaxLength(String inputString, int length) {
   final lines = inputString.split('\n');

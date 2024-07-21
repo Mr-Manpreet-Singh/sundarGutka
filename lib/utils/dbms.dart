@@ -27,10 +27,10 @@ class SharedPrefsHelper {
  await fAnalytics.logEvent(
             name:'user_settings',          
             parameters: {
-                  "fontSize" : settings.fontSize,
-                  "fontWeight" : settings.fontWeight,
-                  "isPageView":settings.isPageView,
-                  "language": settings.language
+                  "fontSize" : settings.fontSize.toString(),
+                  "fontWeight" : settings.fontWeight.toString(),
+                  "isPageView":settings.isPageView.toString(),
+                  "language": settings.language.toString()
             } 
             );
   }
