@@ -179,7 +179,7 @@ class _PathPageViewState extends ConsumerState<PathPageView> {
 
                       return Text(
                         splitByEmptyLinesAndMaxLength(
-                            selectedFullPath[widget.selectedPath]!, 400)[index],
+                            selectedFullPath[widget.selectedPath]!)[index],
                         style: TextStyle(
                           fontSize: fontSize.toDouble(),
                           fontWeight: FontWeight.values[fontWeight],

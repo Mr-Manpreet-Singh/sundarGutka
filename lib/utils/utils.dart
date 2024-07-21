@@ -44,7 +44,7 @@ Map<String, String> mapOfPathOfSelectedLanguage(Language lang) {
   }
 }
 
-List<String> splitByEmptyLinesAndMaxLength(String inputString, int length) {
+List<String> splitByEmptyLinesAndMaxLength(String inputString) {
   final lines = inputString.split('\n');
   final result = <String>[];
   var currentChunk = '';
@@ -52,7 +52,7 @@ List<String> splitByEmptyLinesAndMaxLength(String inputString, int length) {
   for (var line in lines) {
     if (line.isEmpty) {
       if (currentChunk.isNotEmpty) {
-        result.add(currentChunk);
+        result.add('$currentChunk\n');
         currentChunk = '';
       }
     } else {
@@ -64,15 +64,16 @@ List<String> splitByEmptyLinesAndMaxLength(String inputString, int length) {
     result.add(currentChunk);
   }
 
-  return mergeChunks(result, length);
+  return mergeChunks(result);
 }
 
-List<String> mergeChunks(List<String> chunks, int length) {
+List<String> mergeChunks(List<String> chunks) {
+  const maxMergeLength = 300;
   final result = <String>[];
   var currentChunk = '';
 
   for (var chunk in chunks) {
-    if (currentChunk.length + chunk.length <= 350) {
+    if (currentChunk.length + chunk.length <= maxMergeLength) {
       currentChunk += chunk;
     } else {
       result.add(currentChunk);

@@ -22,13 +22,15 @@
 // TODO LEFT
 // custom event added to track user_settings in shared prefrences file... check the analytics dashboard tomorrow
 //  path errors found my mummy
-  // - page 162 (18 -> 6)word nirmal page 10(8 ->1) sukhmani sahib, 7th astpati 3rd poudi (pg58) send to mummy for verification
+  //TODO - page 162 (18 -> 6)word nirmal page 10(8 ->1) sukhmani sahib, 7th astpati 3rd poudi (pg58) send to mummy for verification
   //D - Tav-Parsad Savaiye starting  ੴ ਸਤਿਗੁਰ ਪ੍ਰਸਾਦਿ ਪਾਤਸਾਹੀ ॥੧੦॥
   //D - ReshrasSahib starting        ਰਹਿਰਾਸ ਸਾਹਿਬ
   //D - ReshrasSahib page 43
   //D - Kirtan Sohila page 4 
   //D - ardas page 6 
 
+  // TODO ! mark in path
+//  rehras sahib and sukhmani sahib to match with hindi is left
 // when we change the language how we will deal with the index of page 
 // add english and hindi Path
 // add alanlytics .. 

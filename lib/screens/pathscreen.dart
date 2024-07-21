@@ -27,7 +27,7 @@ class PathScreen extends ConsumerWidget {
     final isPageView =
         ref.watch(settingsProvider.select((value) => value.isPageView));
     final length =
-        splitByEmptyLinesAndMaxLength(fullPathPunjabi[selectedPath]!, 400)
+        splitByEmptyLinesAndMaxLength(fullPathPunjabi[selectedPath]!)
             .length;
 
     return (isPageView && length > 1)
