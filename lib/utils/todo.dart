@@ -28,10 +28,13 @@
   //D - ReshrasSahib page 43
   //D - Kirtan Sohila page 4 
   //D - ardas page 6 
+// D chaupai sahib in hindi left
+//D hindi paths satrting left
+//D hindi sayaiye word left
+// punjabi errors of sukhmani sahib left
 
-  // TODO ! mark in path
-//  rehras sahib and sukhmani sahib to match with hindi is left
-// when we change the language how we will deal with the index of page 
+  // TODO ! mark in path HINDI ardas
+// when we change the language how we will deal with the index of page  try catch 
 // add english and hindi Path
 // add alanlytics .. 
   
