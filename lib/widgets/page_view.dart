@@ -1,75 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sundar_gutka/data/model.dart';
 import 'package:sundar_gutka/providers/page_index_provider.dart';
 import 'package:sundar_gutka/providers/settings_provider.dart';
 import 'package:sundar_gutka/utils/utils.dart';
+// import 'package:sundar_gutka/widgets/page_view_bottom_bar.dart';
 
-class PathPageView extends ConsumerStatefulWidget {
+class PathPageView extends ConsumerWidget {
   const PathPageView({
     super.key,
     required this.selectedPath,
     required this.navigateToSettingScreen,
-    required this.lastPageNo,
+    // required this.pageController,
   });
 
   final String selectedPath;
-  final int lastPageNo;
   final Function navigateToSettingScreen;
+  // final PageController pageController;
 
-  @override
-  ConsumerState<PathPageView> createState() => _PathPageViewState();
-}
-
-class _PathPageViewState extends ConsumerState<PathPageView> {
-  late final PageController _pageController;
-  late final int previouslySavedIndex;
-  @override
-  void initState() {
-    super.initState();
-    previouslySavedIndex = getPrevIndex(widget.selectedPath);
-    _pageController = PageController(initialPage: previouslySavedIndex);
+  int _getLastPageNumber(Language lang) {
+    return splitByEmptyLinesAndMaxLength(
+            mapOfPathOfSelectedLanguage(lang)[selectedPath]!)
+        .length;
   }
 
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
+  void _savePageIndex(int index, WidgetRef ref) {
+    ref.read(pageIndexProvider.notifier).updateIndex(selectedPath, index);
   }
 
-  int getPrevIndex(String path) {
-    final indexMap = ref.read(pageIndexProvider);
-    return indexMap[path] ?? 0;
-  }
-
-  void savePageIndex(int index) {
-    ref
-        .read(pageIndexProvider.notifier)
-        .updateIndex(widget.selectedPath, index);
-  }
-
-  // void _moveToNextPage() {
-  //   _pageController.nextPage(
-  //     duration: const Duration(milliseconds: 300), // Add animation duration
-  //     curve: Curves.ease, // Customize animation curve if desired
-  //   );
-  // }
-
-  // void _moveToPreviousPage() {
-  //   _pageController.previousPage(
-  //     duration: const Duration(milliseconds: 300), // Add animation duration
-  //     curve: Curves.ease, // Customize animation curve if desired
-  //   );
-  // }
-
-  void _goToPage(int newPage, int length) {
+  void _goToPage(int newPage, int length, PageController pageController) {
     if (newPage > -1 && newPage <= length) {
-      _pageController.animateToPage(newPage,
-          duration: const Duration(milliseconds: 500), // Add animation duration
-          curve: Curves.ease); // Customize animation curve if desired
+      pageController.animateToPage(newPage,
+          duration: const Duration(milliseconds: 500), curve: Curves.ease);
     }
   }
 
-  void showNumberInputDialog(BuildContext context, int length) {
+  void _showNumberInputDialog(
+      BuildContext context, int length, PageController pageController) {
     final TextEditingController controller = TextEditingController();
 
     showDialog(
@@ -98,7 +65,8 @@ class _PathPageViewState extends ConsumerState<PathPageView> {
                 if (enteredValue.isNotEmpty &&
                     int.tryParse(enteredValue) != null) {
                   Navigator.pop(context, enteredValue);
-                  _goToPage(int.parse(enteredValue) - 1, length);
+                  _goToPage(
+                      int.parse(enteredValue) - 1, length, pageController);
                 }
               },
               child: const Text('GO'),
@@ -110,17 +78,38 @@ class _PathPageViewState extends ConsumerState<PathPageView> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    print("Page View rebuilts");
+    late int lastPageNo;
+    // rebuilding screen in case of language change
+    final List<String> bani = ref.watch(
+      settingsProvider.select(
+        (value) {
+          lastPageNo = _getLastPageNumber(value.language);
+          final Map<String, String> selectedFullPath =
+              mapOfPathOfSelectedLanguage(value.language);
+          final List<String> bani =
+              splitByEmptyLinesAndMaxLength(selectedFullPath[selectedPath]!);
+          return bani;
+        },
+      ),
+    );
+
+    final int savedIndex = ref.read(pageIndexProvider)[selectedPath] ?? 0;
+    final PageController pageController =
+        PageController(initialPage: savedIndex);
+
     return Scaffold(
       appBar: AppBar(
         actions: [
           IconButton(
             icon: const Text("Go", style: gotextTextStyle),
-            onPressed: () => showNumberInputDialog(context, widget.lastPageNo),
+            onPressed: () =>
+                _showNumberInputDialog(context, lastPageNo, pageController),
           ),
           IconButton(
               onPressed: () {
-                widget.navigateToSettingScreen(context);
+                navigateToSettingScreen(context);
               },
               icon: const Icon(Icons.settings),
               color: myActionColor),
@@ -129,14 +118,14 @@ class _PathPageViewState extends ConsumerState<PathPageView> {
           )
         ],
         elevation: 1,
-        title: Text(widget.selectedPath),
+        title: Text(selectedPath),
         centerTitle: false,
       ),
       body: PageView.builder(
-        itemCount: widget.lastPageNo,
-        controller: _pageController,
+        itemCount: lastPageNo,
+        controller: pageController,
         onPageChanged: (value) {
-          savePageIndex(value);
+          _savePageIndex(value, ref);
         },
         itemBuilder: (context, index) {
           final scrollController = ScrollController();
@@ -163,23 +152,18 @@ class _PathPageViewState extends ConsumerState<PathPageView> {
                           borderRadius: BorderRadius.circular(20)),
                       margin: const EdgeInsets.only(bottom: 16),
                       child: Text(
-                        "${index + 1}  of  ${widget.lastPageNo}",
+                        "${index + 1}  of  $lastPageNo",
                         style: myF14TextStyle,
                       ),
                     ),
                     Consumer(builder: (context, ref, child) {
-                      final language = ref.watch(
-                          settingsProvider.select((value) => value.language));
                       final fontWeight = ref.watch(
                           settingsProvider.select((value) => value.fontWeight));
                       final fontSize = ref.watch(
                           settingsProvider.select((value) => value.fontSize));
-                      final selectedFullPath =
-                          mapOfPathOfSelectedLanguage(language);
 
                       return Text(
-                        splitByEmptyLinesAndMaxLength(
-                            selectedFullPath[widget.selectedPath]!)[index],
+                        bani[index],
                         style: TextStyle(
                           fontSize: fontSize.toDouble(),
                           fontWeight: FontWeight.values[fontWeight],
@@ -195,8 +179,7 @@ class _PathPageViewState extends ConsumerState<PathPageView> {
         },
       ),
       // bottomNavigationBar: PageViewBottomAppBar(
-      //   moveToNextPage: _moveToNextPage,
-      //   moveToPreviousPage: _moveToPreviousPage,
+      //   pageController:pageController
       // ),
     );
   }

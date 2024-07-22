@@ -4,12 +4,24 @@ import 'package:sundar_gutka/utils/utils.dart';
 class PageViewBottomAppBar extends StatelessWidget {
   const PageViewBottomAppBar({
     super.key,
-    required this.moveToNextPage,
-    required this.moveToPreviousPage,
+    required this.pageController,
   });
 
-  final VoidCallback moveToPreviousPage;
-  final VoidCallback moveToNextPage;
+  final PageController pageController;
+
+    void _moveToNextPage() {
+    pageController.nextPage(
+      duration: const Duration(milliseconds: 300), // Add animation duration
+      curve: Curves.ease, // Customize animation curve if desired
+    );
+  }
+
+  void _moveToPreviousPage() {
+    pageController.previousPage(
+      duration: const Duration(milliseconds: 300), // Add animation duration
+      curve: Curves.ease, // Customize animation curve if desired
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +35,7 @@ class PageViewBottomAppBar extends StatelessWidget {
               Expanded(
                 child: IconButton(
                   padding: const EdgeInsets.symmetric(vertical: 0),
-                  onPressed: moveToPreviousPage,
+                  onPressed: _moveToPreviousPage,
                   icon: const Icon(Icons.arrow_back_ios_rounded, color: myActionColor),
                   iconSize: 30,
                 ),
@@ -32,7 +44,7 @@ class PageViewBottomAppBar extends StatelessWidget {
               Expanded(
                 child: IconButton(
                   padding: const EdgeInsets.symmetric(vertical: 0),
-                  onPressed: moveToNextPage,
+                  onPressed: _moveToNextPage,
                   icon: const Icon(Icons.arrow_forward_ios_rounded, color: myActionColor),
                   iconSize: 30,
                 ),

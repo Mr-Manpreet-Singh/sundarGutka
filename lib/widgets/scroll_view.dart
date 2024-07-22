@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sundar_gutka/providers/scroll_provider.dart';
-import 'package:sundar_gutka/screens/setting.dart';
+
 import 'package:sundar_gutka/providers/settings_provider.dart';
 import 'package:sundar_gutka/utils/utils.dart';
 
@@ -9,18 +9,13 @@ class PathScrollView extends ConsumerWidget {
   const PathScrollView({
     super.key,
     required this.selectedPath,
+    required this.navigateToSettingScreen,
   });
 
   final String selectedPath;
+  final Function navigateToSettingScreen;
 
-  void _navigateToSettings(context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const SettingScreen(),
-      ),
-    );
-  }
+  
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -40,7 +35,7 @@ class PathScrollView extends ConsumerWidget {
         actions: [
           IconButton(
               onPressed: () {
-                _navigateToSettings(context);
+                navigateToSettingScreen(context);
               },
               icon: const Icon(Icons.settings),
               color: myActionColor),

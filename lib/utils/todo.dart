@@ -15,14 +15,9 @@
 //  save font Size,boldness,pageve/scrollview,lang in dbms
 // exit confirmation alert dialogue box
 // state management for scroll view
-
-
-
-
-// TODO LEFT
 // custom event added to track user_settings in shared prefrences file... check the analytics dashboard tomorrow
 //  path errors found my mummy
-  //TODO - page 162 (18 -> 6)word nirmal page 10(8 ->1) sukhmani sahib, 7th astpati 3rd poudi (pg58) send to mummy for verification
+  // - page 162 (18 -> 6)word nirmal page 10(8 ->1) sukhmani sahib, 7th astpati 3rd poudi (pg58) send to mummy for verification
   //D - Tav-Parsad Savaiye starting  ੴ ਸਤਿਗੁਰ ਪ੍ਰਸਾਦਿ ਪਾਤਸਾਹੀ ॥੧੦॥
   //D - ReshrasSahib starting        ਰਹਿਰਾਸ ਸਾਹਿਬ
   //D - ReshrasSahib page 43
@@ -31,17 +26,21 @@
 // D chaupai sahib in hindi left
 //D hindi paths satrting left
 //D hindi sayaiye word left
-// punjabi errors of sukhmani sahib left
+//D punjabi errors of sukhmani sahib left
+//D when we change the language how we will deal with the index of page  try catch 
+//D add alanlytics .. 
+
 
   // TODO ! mark in path HINDI ardas
-// when we change the language how we will deal with the index of page  try catch 
-// add english and hindi Path
-// add alanlytics .. 
-  
+// seeting Switch to shoe bottom buttons on page view
+//  crah analytics
 //  app logo | name
-// app Size Optimization
+// google account creation
 // before publishing secure the api keys ... settings file in google ...
+// app Size Optimization
 //  google remote config.. 
+// add english
+  
 
 
 // TODO Version 2

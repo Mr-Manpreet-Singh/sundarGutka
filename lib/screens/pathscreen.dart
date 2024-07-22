@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:sundar_gutka/data/model.dart';
+import 'package:sundar_gutka/providers/page_index_provider.dart';
 
 import 'package:sundar_gutka/screens/setting.dart';
 import 'package:sundar_gutka/data/path_map.dart';
@@ -26,16 +28,16 @@ class PathScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final isPageView =
         ref.watch(settingsProvider.select((value) => value.isPageView));
-    final length =
-        splitByEmptyLinesAndMaxLength(fullPathPunjabi[selectedPath]!)
-            .length;
 
-    return (isPageView && length > 1)
-            ? PathPageView(
-                selectedPath: selectedPath,
-                navigateToSettingScreen: _navigateToSettings,
-                lastPageNo: length,
-              )
-            : PathScrollView(selectedPath: selectedPath);
+
+
+    return (isPageView)
+        ? PathPageView(
+            selectedPath: selectedPath,
+            navigateToSettingScreen: _navigateToSettings,
+          )
+        : PathScrollView(
+            selectedPath: selectedPath,
+            navigateToSettingScreen: _navigateToSettings);
   }
 }
