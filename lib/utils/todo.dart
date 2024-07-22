@@ -29,10 +29,11 @@
 //D punjabi errors of sukhmani sahib left
 //D when we change the language how we will deal with the index of page  try catch 
 //D add alanlytics .. 
+// seeting Switch to shoe bottom buttons on page view
 
 
   // TODO ! mark in path HINDI ardas
-// seeting Switch to shoe bottom buttons on page view
+// select text and report feature
 //  crah analytics
 //  app logo | name
 // google account creation

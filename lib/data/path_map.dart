@@ -3,10 +3,7 @@ import 'package:sundar_gutka/data/path_english.dart';
 import 'package:sundar_gutka/data/path_hindi.dart';
 import 'package:sundar_gutka/data/path_punjabi.dart';
 
-// const String regSxpressionString =
-//     "॥.{1,3}॥";
-// ||at start and exd + any 1 or to or 3 charactes in between
-// crt+ shift L  for multi selection
+
 
 
 const List<String> pathList = [

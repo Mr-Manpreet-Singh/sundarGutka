@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:sundar_gutka/data/model.dart';
-import 'package:sundar_gutka/providers/page_index_provider.dart';
 
 import 'package:sundar_gutka/screens/setting.dart';
-import 'package:sundar_gutka/data/path_map.dart';
 import 'package:sundar_gutka/providers/settings_provider.dart';
-import 'package:sundar_gutka/utils/utils.dart';
 import 'package:sundar_gutka/widgets/page_view.dart';
 import 'package:sundar_gutka/widgets/scroll_view.dart';
 

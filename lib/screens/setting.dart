@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sundar_gutka/providers/settings_provider.dart';
 import 'package:sundar_gutka/utils/utils.dart';
 import 'package:sundar_gutka/widgets/language_chip.dart';
+import 'package:sundar_gutka/widgets/settings_tile.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});
@@ -24,8 +25,11 @@ class SettingScreen extends StatelessWidget {
     ref.read(settingsProvider.notifier).decFontWeight();
   }
 
-  _switchView(WidgetRef ref) {
+  _switchBaniView(WidgetRef ref) {
     ref.read(settingsProvider.notifier).updateIsPageView();
+  }
+  _switchBottomButtons(WidgetRef ref) {
+    ref.read(settingsProvider.notifier).updateIsShowBottomButtons();
   }
 
   @override
@@ -55,20 +59,13 @@ class SettingScreen extends StatelessWidget {
             const SizedBox(height: 20),
             const LanguageSelectionScreen(),
             const SizedBox(height: 16),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 28),
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(12)),
-                color: myActionColorLight,
-              ),
+            SettingsTile(
               child: Row(
-                // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
                     "Font Size",
                     style: myF16TextStyle,
                   ),
-                  // const SizedBox(width: 80),
                   const Expanded(child: SizedBox()),
                   Consumer(builder: (context, ref, child) {
                     final fontSize = ref.watch(
@@ -86,16 +83,8 @@ class SettingScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 16),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 28),
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(12)),
-                // color: myActionColorLight,
-                color: myActionColorLight,
-              ),
+            SettingsTile(
               child: Row(
-                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text("Font Boldness", style: myF16TextStyle),
                   const Expanded(child: SizedBox()),
@@ -116,13 +105,36 @@ class SettingScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 16),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 28),
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(12)),
-                color: myActionColorLight,
+            
+            SettingsTile(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Show Navigation Buttons", style: myF16TextStyle),
+                      Text("In Page View", style: myF14TextStyle),
+                    ],
+                  ),
+                  
+                  Consumer(builder: (context, ref, child) {
+                    final isShowBottomButtons = ref.watch(
+                        settingsProvider.select((value) => value.isShowBottomButtons));
+
+                    return Switch(
+                      value: isShowBottomButtons,
+                      onChanged: (_) {
+                        _switchBottomButtons(ref);
+                      },
+                    );
+                  }),
+                  
+                ],
               ),
+            ),
+            
+            SettingsTile(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -135,11 +147,10 @@ class SettingScreen extends StatelessWidget {
                     return Switch(
                       value: isPageView,
                       onChanged: (_) {
-                        _switchView(ref);
+                        _switchBaniView(ref);
                       },
                     );
                   }),
-                  // const SizedBox(width: 20),
                   const Text("Page View", style: myF16TextStyle),
                 ],
               ),

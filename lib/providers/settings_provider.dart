@@ -11,6 +11,7 @@ class SettingsNotifier extends StateNotifier<SettingModel> {
   final SharedPrefsHelper _prefsHelper = SharedPrefsHelper();
 
   SettingsNotifier() : super(SettingModel(
+    isShowBottomButtons: true,
             fontSize: 26,
             fontWeight: FontWeight.normal.value ~/ 100,
             isPageView: false,
@@ -24,6 +25,10 @@ class SettingsNotifier extends StateNotifier<SettingModel> {
 
   Future<void> updateIsPageView() async {
     state = state.copyWith(isPageView: !state.isPageView);
+    await _prefsHelper.saveSettings(state);
+  }
+  Future<void> updateIsShowBottomButtons() async {
+    state = state.copyWith(isShowBottomButtons: !state.isShowBottomButtons);
     await _prefsHelper.saveSettings(state);
   }
 

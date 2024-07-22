@@ -4,6 +4,7 @@ import 'package:sundar_gutka/data/model.dart';
 import 'package:sundar_gutka/providers/page_index_provider.dart';
 import 'package:sundar_gutka/providers/settings_provider.dart';
 import 'package:sundar_gutka/utils/utils.dart';
+import 'package:sundar_gutka/widgets/page_view_bottom_bar.dart';
 // import 'package:sundar_gutka/widgets/page_view_bottom_bar.dart';
 
 class PathPageView extends ConsumerWidget {
@@ -79,7 +80,6 @@ class PathPageView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    print("Page View rebuilts");
     late int lastPageNo;
     // rebuilding screen in case of language change
     final List<String> bani = ref.watch(
@@ -178,9 +178,12 @@ class PathPageView extends ConsumerWidget {
           );
         },
       ),
-      // bottomNavigationBar: PageViewBottomAppBar(
-      //   pageController:pageController
-      // ),
+      bottomNavigationBar: Visibility(
+        visible: ref.watch(settingsProvider.select((value) => value.isShowBottomButtons)),
+        child: PageViewBottomAppBar(
+          pageController:pageController
+        ),
+      ),
     );
   }
 }
