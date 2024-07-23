@@ -165,24 +165,32 @@ class PathPageView extends ConsumerWidget {
 
                       final String part = bani[index];
 
-                      String errorString = "";
-                      return SelectableText(
+                      // String errorString = "";
+                      return Text(
                         part,
-                        onSelectionChanged: (selection, cause) {
-                          final String str = selection.textInside(part);
-                          if (str == "") return;
-                          errorString = str;
-                        },
-                        onTap: () {
-                          if (errorString == "") return;
-                          _showFeedbackConfirmationDialog(context, errorString);
-                        },
                         style: TextStyle(
                           fontSize: fontSize.toDouble(),
                           fontWeight: FontWeight.values[fontWeight],
                         ),
                         textAlign: TextAlign.center,
                       );
+                      // SelectableText(
+                      //   part,
+                      //   onSelectionChanged: (selection, cause) {
+                      //     final String str = selection.textInside(part);
+                      //     if (str == "") return;
+                      //     errorString = str;
+                      //   },
+                      //   onTap: () {
+                      //     if (errorString == "") return;
+                      //     _showFeedbackConfirmationDialog(context, errorString);
+                      //   },
+                      //   style: TextStyle(
+                      //     fontSize: fontSize.toDouble(),
+                      //     fontWeight: FontWeight.values[fontWeight],
+                      //   ),
+                      //   textAlign: TextAlign.center,
+                      // );
                     })
                   ],
                 ),
@@ -199,68 +207,68 @@ class PathPageView extends ConsumerWidget {
     );
   }
 
-  Future _showFeedbackConfirmationDialog(
-      BuildContext context, String errorString) async {
-    final TextEditingController userInputTextController =
-        TextEditingController();
+  // Future _showFeedbackConfirmationDialog(
+  //     BuildContext context, String errorString) async {
+  //   final TextEditingController userInputTextController =
+  //       TextEditingController();
 
-    void submitFeedback() async {
-      print("HAEY BABY ${userInputTextController.text}");
-      if (userInputTextController.text == "") return;
+  //   void submitFeedback() async {
+  //     print("HAEY BABY ${userInputTextController.text}");
+  //     if (userInputTextController.text == "") return;
 
-      final UserFeedback userFeedback = UserFeedback(
-          category: FeedbackCategory.mistake,
-          errorString: errorString,
-          userMessage: userInputTextController.text);
-      print("USERFEEDBACK = ${userFeedback.toMap().toString()}");
+  //     final UserFeedback userFeedback = UserFeedback(
+  //         category: FeedbackCategory.mistake,
+  //         errorString: errorString,
+  //         userMessage: userInputTextController.text);
+  //     print("USERFEEDBACK = ${userFeedback.toMap().toString()}");
+  //  Send Feedback to Firebase
+  // final response = await FirebaseFirestore.instance
+  //     .collection('userFeedback')
+  //     .add(userFeedback.toMap());
+  // print("RESPONSE = $response");
+//     }
 
-      // // final response = await FirebaseFirestore.instance
-      //     .collection('userFeedback')
-      //     .add(userFeedback.toMap());
-      // print("RESPONSE = $response");
-    }
+//     await showDialog<bool>(
+//       context: context,
+//       builder: (context) => AlertDialog(
+//         scrollable: true,
+//         title: const Text('Send Feedback'),
+//         content: Column(
+//           mainAxisSize: MainAxisSize.min,
+//           children: [
+//             Text(
+//               errorString,
+//               style: myF18TextStyle,
+//             ),
+//             TextField(
 
-    await showDialog<bool>(
-      context: context,
-      builder: (context) => AlertDialog(
-        scrollable: true,
-        title: const Text('Send Feedback'),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              errorString,
-              style: myF18TextStyle,
-            ),
-            TextField(
-              
-              controller: userInputTextController,
-              maxLength: 500,
-              keyboardType: TextInputType.multiline,
-              autofocus: true,
-            ),
-          ],
-        ),
-        actions: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              ElevatedButton(
-                onPressed: () => Navigator.pop(context),
-                child: const Text('Cancel'),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  submitFeedback();
-                  print("ON PRESSED TRIGGERED");
-                  Navigator.pop(context);
-                },
-                child: const Text('Send'),
-              ),
-            ],
-          )
-        ],
-      ),
-    );
-  }
+//               controller: userInputTextController,
+//               maxLength: 500,
+//               keyboardType: TextInputType.multiline,
+//               autofocus: true,
+//             ),
+//           ],
+//         ),
+//         actions: [
+//           Row(
+//             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//             children: [
+//               ElevatedButton(
+//                 onPressed: () => Navigator.pop(context),
+//                 child: const Text('Cancel'),
+//               ),
+//               ElevatedButton(
+//                 onPressed: () {
+//                   submitFeedback();
+//                   print("ON PRESSED TRIGGERED");
+//                   Navigator.pop(context);
+//                 },
+//                 child: const Text('Send'),
+//               ),
+//             ],
+//           )
+//         ],
+//       ),
+//     );
+//   }
 }

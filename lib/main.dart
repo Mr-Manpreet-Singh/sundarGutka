@@ -31,8 +31,8 @@ class MyApp extends StatelessWidget {
         appBarTheme: const AppBarTheme(backgroundColor: myBackgroundColor),
         bottomAppBarTheme: const BottomAppBarTheme(color: myBackgroundColor),
         switchTheme: const SwitchThemeData(
-            trackColor: MaterialStatePropertyAll(myActionColor),
-            thumbColor: MaterialStatePropertyAll(Colors.white)),
+            trackColor: WidgetStatePropertyAll(myActionColor),
+            thumbColor: WidgetStatePropertyAll(Colors.white)),
         useMaterial3: true,
       ),
       home: const HomeScreen(),

@@ -110,9 +110,9 @@ class SettingScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Column(
+                  const  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children:  [
                       Text("Show Navigation Buttons", style: myF16TextStyle),
                       Text("In Page View", style: myF14TextStyle),
                     ],
