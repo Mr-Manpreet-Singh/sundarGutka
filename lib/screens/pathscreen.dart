@@ -25,8 +25,6 @@ class PathScreen extends ConsumerWidget {
     final isPageView =
         ref.watch(settingsProvider.select((value) => value.isPageView));
 
-
-
     return (isPageView)
         ? PathPageView(
             selectedPath: selectedPath,

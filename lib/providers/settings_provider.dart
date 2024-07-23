@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sundar_gutka/data/model.dart';
-import 'package:sundar_gutka/utils/dbms.dart';
+import 'package:sundar_gutka/providers/dbms.dart';
 
 final settingsProvider = StateNotifierProvider<SettingsNotifier, SettingModel>(
   (ref) => SettingsNotifier(),

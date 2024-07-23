@@ -7,7 +7,9 @@ import 'package:sundar_gutka/data/path_map.dart';
 import 'package:sundar_gutka/utils/utils.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({
+    super.key,
+  });
 
   void _onPress(context, String selectedPath) {
     Navigator.push(
@@ -32,7 +34,6 @@ class HomeScreen extends StatelessWidget {
     return PopScope(
       onPopInvoked: (didPop) {
         showExitConfirmationDialog(context);
-
       },
       canPop: false,
       child: Scaffold(

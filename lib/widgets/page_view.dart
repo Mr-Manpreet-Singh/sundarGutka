@@ -1,3 +1,4 @@
+// import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sundar_gutka/data/model.dart';
@@ -162,8 +163,20 @@ class PathPageView extends ConsumerWidget {
                       final fontSize = ref.watch(
                           settingsProvider.select((value) => value.fontSize));
 
-                      return Text(
-                        bani[index],
+                      final String part = bani[index];
+
+                      String errorString = "";
+                      return SelectableText(
+                        part,
+                        onSelectionChanged: (selection, cause) {
+                          final String str = selection.textInside(part);
+                          if (str == "") return;
+                          errorString = str;
+                        },
+                        onTap: () {
+                          if (errorString == "") return;
+                          _showFeedbackConfirmationDialog(context, errorString);
+                        },
                         style: TextStyle(
                           fontSize: fontSize.toDouble(),
                           fontWeight: FontWeight.values[fontWeight],
@@ -179,10 +192,74 @@ class PathPageView extends ConsumerWidget {
         },
       ),
       bottomNavigationBar: Visibility(
-        visible: ref.watch(settingsProvider.select((value) => value.isShowBottomButtons)),
-        child: PageViewBottomAppBar(
-          pageController:pageController
+        visible: ref.watch(
+            settingsProvider.select((value) => value.isShowBottomButtons)),
+        child: PageViewBottomAppBar(pageController: pageController),
+      ),
+    );
+  }
+
+  Future _showFeedbackConfirmationDialog(
+      BuildContext context, String errorString) async {
+    final TextEditingController userInputTextController =
+        TextEditingController();
+
+    void submitFeedback() async {
+      print("HAEY BABY ${userInputTextController.text}");
+      if (userInputTextController.text == "") return;
+
+      final UserFeedback userFeedback = UserFeedback(
+          category: FeedbackCategory.mistake,
+          errorString: errorString,
+          userMessage: userInputTextController.text);
+      print("USERFEEDBACK = ${userFeedback.toMap().toString()}");
+
+      // // final response = await FirebaseFirestore.instance
+      //     .collection('userFeedback')
+      //     .add(userFeedback.toMap());
+      // print("RESPONSE = $response");
+    }
+
+    await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        scrollable: true,
+        title: const Text('Send Feedback'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              errorString,
+              style: myF18TextStyle,
+            ),
+            TextField(
+              
+              controller: userInputTextController,
+              maxLength: 500,
+              keyboardType: TextInputType.multiline,
+              autofocus: true,
+            ),
+          ],
         ),
+        actions: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ElevatedButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Cancel'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  submitFeedback();
+                  print("ON PRESSED TRIGGERED");
+                  Navigator.pop(context);
+                },
+                child: const Text('Send'),
+              ),
+            ],
+          )
+        ],
       ),
     );
   }

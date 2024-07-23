@@ -165,8 +165,8 @@ class SettingScreen extends StatelessWidget {
     return IconButton(
       onPressed: () => fn(ref),
       icon: Icon(
-        size: 30,
         icon,
+        size: 30,
         color: myActionColor,
       ),
     );
