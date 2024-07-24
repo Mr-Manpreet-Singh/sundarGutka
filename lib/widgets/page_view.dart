@@ -1,12 +1,13 @@
-// import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sundar_gutka/data/model.dart';
 import 'package:sundar_gutka/providers/page_index_provider.dart';
 import 'package:sundar_gutka/providers/settings_provider.dart';
+import 'package:sundar_gutka/utils/constants.dart';
+import 'package:sundar_gutka/utils/submit_feedback.dart';
 import 'package:sundar_gutka/utils/utils.dart';
 import 'package:sundar_gutka/widgets/page_view_bottom_bar.dart';
-// import 'package:sundar_gutka/widgets/page_view_bottom_bar.dart';
 
 class PathPageView extends ConsumerWidget {
   const PathPageView({
@@ -21,8 +22,8 @@ class PathPageView extends ConsumerWidget {
   // final PageController pageController;
 
   int _getLastPageNumber(Language lang) {
-    return splitByEmptyLinesAndMaxLength(
-            mapOfPathOfSelectedLanguage(lang)[selectedPath]!)
+    return Util.splitByEmptyLinesAndMaxLength(
+            Util.mapOfPathOfSelectedLanguage(lang)[selectedPath]!)
         .length;
   }
 
@@ -88,9 +89,9 @@ class PathPageView extends ConsumerWidget {
         (value) {
           lastPageNo = _getLastPageNumber(value.language);
           final Map<String, String> selectedFullPath =
-              mapOfPathOfSelectedLanguage(value.language);
-          final List<String> bani =
-              splitByEmptyLinesAndMaxLength(selectedFullPath[selectedPath]!);
+              Util.mapOfPathOfSelectedLanguage(value.language);
+          final List<String> bani = Util.splitByEmptyLinesAndMaxLength(
+              selectedFullPath[selectedPath]!);
           return bani;
         },
       ),
@@ -164,33 +165,33 @@ class PathPageView extends ConsumerWidget {
                           settingsProvider.select((value) => value.fontSize));
 
                       final String part = bani[index];
+                      String errorString = "";
 
-                      // String errorString = "";
-                      return Text(
-                        part,
-                        style: TextStyle(
-                          fontSize: fontSize.toDouble(),
-                          fontWeight: FontWeight.values[fontWeight],
-                        ),
-                        textAlign: TextAlign.center,
-                      );
-                      // SelectableText(
+                      // return Text(
                       //   part,
-                      //   onSelectionChanged: (selection, cause) {
-                      //     final String str = selection.textInside(part);
-                      //     if (str == "") return;
-                      //     errorString = str;
-                      //   },
-                      //   onTap: () {
-                      //     if (errorString == "") return;
-                      //     _showFeedbackConfirmationDialog(context, errorString);
-                      //   },
                       //   style: TextStyle(
                       //     fontSize: fontSize.toDouble(),
                       //     fontWeight: FontWeight.values[fontWeight],
                       //   ),
                       //   textAlign: TextAlign.center,
                       // );
+                      return SelectableText(
+                        part,
+                        onSelectionChanged: (selection, cause) {
+                          final String str = selection.textInside(part);
+                          if (str == "") return;
+                          errorString = str;
+                        },
+                        onTap: () {
+                          if (errorString == "") return;
+                          SendFeedbackToFirebase.showFeedbackConfirmationDialog(context, errorString);
+                        },
+                        style: TextStyle(
+                          fontSize: fontSize.toDouble(),
+                          fontWeight: FontWeight.values[fontWeight],
+                        ),
+                        textAlign: TextAlign.center,
+                      );
                     })
                   ],
                 ),
@@ -206,69 +207,4 @@ class PathPageView extends ConsumerWidget {
       ),
     );
   }
-
-  // Future _showFeedbackConfirmationDialog(
-  //     BuildContext context, String errorString) async {
-  //   final TextEditingController userInputTextController =
-  //       TextEditingController();
-
-  //   void submitFeedback() async {
-  //     print("HAEY BABY ${userInputTextController.text}");
-  //     if (userInputTextController.text == "") return;
-
-  //     final UserFeedback userFeedback = UserFeedback(
-  //         category: FeedbackCategory.mistake,
-  //         errorString: errorString,
-  //         userMessage: userInputTextController.text);
-  //     print("USERFEEDBACK = ${userFeedback.toMap().toString()}");
-  //  Send Feedback to Firebase
-  // final response = await FirebaseFirestore.instance
-  //     .collection('userFeedback')
-  //     .add(userFeedback.toMap());
-  // print("RESPONSE = $response");
-//     }
-
-//     await showDialog<bool>(
-//       context: context,
-//       builder: (context) => AlertDialog(
-//         scrollable: true,
-//         title: const Text('Send Feedback'),
-//         content: Column(
-//           mainAxisSize: MainAxisSize.min,
-//           children: [
-//             Text(
-//               errorString,
-//               style: myF18TextStyle,
-//             ),
-//             TextField(
-
-//               controller: userInputTextController,
-//               maxLength: 500,
-//               keyboardType: TextInputType.multiline,
-//               autofocus: true,
-//             ),
-//           ],
-//         ),
-//         actions: [
-//           Row(
-//             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//             children: [
-//               ElevatedButton(
-//                 onPressed: () => Navigator.pop(context),
-//                 child: const Text('Cancel'),
-//               ),
-//               ElevatedButton(
-//                 onPressed: () {
-//                   submitFeedback();
-//                   print("ON PRESSED TRIGGERED");
-//                   Navigator.pop(context);
-//                 },
-//                 child: const Text('Send'),
-//               ),
-//             ],
-//           )
-//         ],
-//       ),
-//     );
-//   }
 }

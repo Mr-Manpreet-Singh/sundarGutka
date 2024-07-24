@@ -30,34 +30,36 @@
 //D when we change the language how we will deal with the index of page  try catch 
 //D add alanlytics .. 
 // seeting Switch to shoe bottom buttons on page view
+// select text and report feature || Firebase unsafe error
 
 
   // TODO ! mark in path HINDI ardas
-// select text and report feature
-//  crah analytics
-//  app logo | name
+  // snackbar for internet ..
+
+  // Cover your head screen + app logo
+    // Rayat tech
+    //    -> Privacy policy web page  // use google sites for the same
+    //    -> Feedback -> help us to immprove  email provided, and Bhul chuk Maaf  | Mail | Rate | Share 
+    //    -> About Sundar Gutka .. list of banis
+    //    -> Read ME how to use app
+    //    -> More apps -> popup Play store -> searched pub:____
+    // Khalsa Foundation
+      // About 
+      // collected states feature to enable disable alanytics
+      // Send Feedback
+
+  // DATA DISCOLosures
+    // https://firebase.google.com/support/privacy/dpo
+    // https://firebase.google.com/docs/android/play-data-disclosure
 // google account creation
+//  app logo | name | App bat Title
+//  crah analytics
 // before publishing secure the api keys ... settings file in google ...
-// app Size Optimization
 //  google remote config.. 
-// add english
   
 
 
 // TODO Version 2
-
+// add english
+// app Size Optimization
 // screen awake feature
-
-
-
-
-
-
-
-
-
-
-
-
-
-// path lines 4-8 or 1 poudi

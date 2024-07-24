@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:sundar_gutka/providers/settings_provider.dart';
+import 'package:sundar_gutka/utils/constants.dart';
 import 'package:sundar_gutka/utils/utils.dart';
 import 'package:sundar_gutka/widgets/language_chip.dart';
 import 'package:sundar_gutka/widgets/settings_tile.dart';
@@ -48,7 +49,7 @@ class SettingScreen extends StatelessWidget {
               child: Consumer(builder: (context, ref, child) {
                 final settings = ref.watch(settingsProvider);
                 return Text(
-                  sampleText(settings.language),
+                  Util.sampleText(settings.language),
                   style: TextStyle(
                     fontSize: settings.fontSize.toDouble(),
                     fontWeight: FontWeight.values[settings.fontWeight],

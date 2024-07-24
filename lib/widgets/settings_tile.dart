@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sundar_gutka/utils/utils.dart';
+import 'package:sundar_gutka/utils/constants.dart';
 
 class SettingsTile extends StatelessWidget {
   const SettingsTile({super.key, required this.child});

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sundar_gutka/providers/scroll_provider.dart';
 
 import 'package:sundar_gutka/providers/settings_provider.dart';
+import 'package:sundar_gutka/utils/constants.dart';
 import 'package:sundar_gutka/utils/utils.dart';
 
 class PathScrollView extends ConsumerWidget {
@@ -15,14 +16,11 @@ class PathScrollView extends ConsumerWidget {
   final String selectedPath;
   final Function navigateToSettingScreen;
 
-  
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final scrollPosition = ref.read(scrollPositionProvider);
     final scrollController = ScrollController(
-        initialScrollOffset: scrollPosition[selectedPath]?.offset ?? 0.0
-        );
+        initialScrollOffset: scrollPosition[selectedPath]?.offset ?? 0.0);
 
     scrollController.addListener(() {
       ref
@@ -67,7 +65,7 @@ class PathScrollView extends ConsumerWidget {
             final fontSize =
                 ref.watch(settingsProvider.select((value) => value.fontSize));
 
-            final selectedFullPath = mapOfPathOfSelectedLanguage(language);
+            final selectedFullPath = Util.mapOfPathOfSelectedLanguage(language);
             return Text(
               (selectedFullPath[selectedPath]!),
               style: TextStyle(

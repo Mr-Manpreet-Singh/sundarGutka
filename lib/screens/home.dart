@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:sundar_gutka/screens/pathscreen.dart';
 import 'package:sundar_gutka/screens/setting.dart';
 import 'package:sundar_gutka/data/path_map.dart';
-import 'package:sundar_gutka/utils/utils.dart';
+import 'package:sundar_gutka/utils/constants.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
