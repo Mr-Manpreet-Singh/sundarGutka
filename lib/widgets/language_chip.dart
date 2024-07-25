@@ -20,13 +20,13 @@ class LanguageSelectionScreen extends ConsumerWidget {
       child: Wrap(
         spacing: 10.0,
         children: [
-          ChoiceChip(
-            label: const Text('English', style: myF16TextStyle),
-            selected: language == Language.english,
-            onSelected: (bool selected) {
-              _onChipSelected(Language.english, ref);
-            },
-          ),
+          // ChoiceChip(
+          //   label: const Text('English', style: myF16TextStyle),
+          //   selected: language == Language.english,
+          //   onSelected: (bool selected) {
+          //     _onChipSelected(Language.english, ref);
+          //   },
+          // ),
           ChoiceChip(
             label: const Text('Hindi', style: myF16TextStyle),
             selected: language == Language.hindi,

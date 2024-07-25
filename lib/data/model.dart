@@ -1,5 +1,7 @@
+
 enum Language { hindi, english, punjabi }
-enum FeedbackCategory { mistake, suggestion }
+enum FeedbackCategory { mistake, feedback ,other }
+enum WhichScreen { sendFeedback, privacyPolicy,howToReportError, about  }
 
 class SettingModel {
   final bool isPageView;
@@ -36,11 +38,15 @@ class UserFeedback {
   final FeedbackCategory category;
   final String errorString;
   final String userMessage;
+  final DateTime timeStamp;
 
-  UserFeedback({
+  UserFeedback(
+    {
     required this.category,
-    required this.errorString,
+     this.errorString = "",
     required this.userMessage,
+    required this.timeStamp ,
+    
   });
 
   Map<String, String> toMap() {
@@ -48,6 +54,7 @@ class UserFeedback {
       'category': category.toString(),
       'errorString': errorString,
       'userMessage': userMessage,
+      'timeStamp':timeStamp.toString()
     };
   }
 }

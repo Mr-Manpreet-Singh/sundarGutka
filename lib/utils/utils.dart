@@ -1,8 +1,29 @@
+import 'dart:io';
+
+import 'package:flutter/material.dart';
 import 'package:sundar_gutka/data/model.dart';
 import 'package:sundar_gutka/data/path_map.dart';
 
 abstract class Util {
   const Util();
+
+  static Future<bool> hasInternetConnection(context) async {
+      try {
+        final result = await InternetAddress.lookup('google.com');
+        return result.isNotEmpty;
+      // ignore: unused_catch_clause
+      } on SocketException catch (e) {
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: const Text("Failed: Check Internet and Try Again"),
+              backgroundColor: Colors.red[400],
+            ),
+          );
+        }
+        return false;
+      }
+    }
 
   static String sampleText(Language lang) {
     switch (lang) {

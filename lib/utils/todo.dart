@@ -31,35 +31,41 @@
 //D add alanlytics .. 
 // seeting Switch to shoe bottom buttons on page view
 // select text and report feature || Firebase unsafe error
+// ->  | Mail | Rate | Share 
+// Send Feedback
+// snackbar for internet ..
+// how to report error / correction
 
 
   // TODO ! mark in path HINDI ardas
-  // snackbar for internet ..
-
+ // About  
   // Cover your head screen + app logo
-    // Rayat tech
-    //    -> Privacy policy web page  // use google sites for the same
-    //    -> Feedback -> help us to immprove  email provided, and Bhul chuk Maaf  | Mail | Rate | Share 
-    //    -> About Sundar Gutka .. list of banis
-    //    -> Read ME how to use app
-    //    -> More apps -> popup Play store -> searched pub:____
-    // Khalsa Foundation
-      // About 
-      // collected states feature to enable disable alanytics
-      // Send Feedback
-
-  // DATA DISCOLosures
-    // https://firebase.google.com/support/privacy/dpo
-    // https://firebase.google.com/docs/android/play-data-disclosure
 // google account creation
 //  app logo | name | App bat Title
 //  crah analytics
 // before publishing secure the api keys ... settings file in google ...
 //  google remote config.. 
+//  Read about app versions
+
+
+  // URL Launcher
+    //    -> Privacy policy web page  // use google sites for the same or download any site  and Terms of use
+    // Terms of use
+  // DATA DISCOLosures
+    // https://firebase.google.com/support/privacy/dpo
+    // https://firebase.google.com/docs/android/play-data-disclosure
+    // Rayat tech
+    //    -> Read ME how to use app
+    //    -> About Sundar Gutka .. list of banis
+    // Khalsa Foundation
+    //    -> collected states feature to enable disable alanytics
+    
   
 
 
 // TODO Version 2
+// share | Rate URL
+    //    -> More apps -> popup Play store -> searched pub:____
 // add english
 // app Size Optimization
 // screen awake feature

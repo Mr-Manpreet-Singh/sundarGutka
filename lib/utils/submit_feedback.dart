@@ -14,7 +14,10 @@ abstract class SendFeedbackToFirebase{
     //  Send Feedback to Firebase
     void submitFeedback() async {
       if (userInputTextController.text == "") return;
+      
+      
       final UserFeedback userFeedback = UserFeedback(
+        timeStamp: DateTime.now(),
           category: FeedbackCategory.mistake,
           errorString: errorString,
           userMessage: userInputTextController.text);
@@ -36,6 +39,7 @@ abstract class SendFeedbackToFirebase{
             content: const Text("Feedback Send, Thanks for Contribution"),
             backgroundColor: Colors.green[300],
           ));
+          
         }
       } on Exception catch (_) {
         if (context.mounted) {
@@ -83,7 +87,7 @@ abstract class SendFeedbackToFirebase{
               ElevatedButton(
                 onPressed: () {
                   submitFeedback();
-                  Navigator.pop(context);
+                  
                 },
                 child: const Text('Send'),
               ),

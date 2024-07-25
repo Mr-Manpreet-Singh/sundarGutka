@@ -1,13 +1,13 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sundar_gutka/data/model.dart';
 import 'package:sundar_gutka/providers/page_index_provider.dart';
 import 'package:sundar_gutka/providers/settings_provider.dart';
 import 'package:sundar_gutka/utils/constants.dart';
-import 'package:sundar_gutka/utils/submit_feedback.dart';
 import 'package:sundar_gutka/utils/utils.dart';
+import 'package:sundar_gutka/widgets/my_scaffold.dart';
 import 'package:sundar_gutka/widgets/page_view_bottom_bar.dart';
+import 'package:sundar_gutka/widgets/send_feedback.dart';
 
 class PathPageView extends ConsumerWidget {
   const PathPageView({
@@ -184,7 +184,13 @@ class PathPageView extends ConsumerWidget {
                         },
                         onTap: () {
                           if (errorString == "") return;
-                          SendFeedbackToFirebase.showFeedbackConfirmationDialog(context, errorString);
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) =>
+                              MyScaffold(appBarTitle: "Report Mistake", body: SendFeedback(errorString: errorString,), )
+                                  
+                            ),
+                          );
                         },
                         style: TextStyle(
                           fontSize: fontSize.toDouble(),

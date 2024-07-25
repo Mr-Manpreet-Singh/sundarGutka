@@ -11,7 +11,7 @@ class SettingsNotifier extends StateNotifier<SettingModel> {
   final SharedPrefsHelper _prefsHelper = SharedPrefsHelper();
 
   SettingsNotifier() : super(SettingModel(
-    isShowBottomButtons: true,
+            isShowBottomButtons: true,
             fontSize: 26,
             fontWeight: FontWeight.normal.value ~/ 100,
             isPageView: false,
