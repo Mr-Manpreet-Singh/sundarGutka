@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sundar_gutka/providers/settings_provider.dart';
 import 'package:sundar_gutka/utils/constants.dart';
 import 'package:sundar_gutka/utils/utils.dart';
+import 'package:sundar_gutka/widgets/about_widget.dart';
 import 'package:sundar_gutka/widgets/language_chip.dart';
 import 'package:sundar_gutka/widgets/my_how_to_report.dart';
 import 'package:sundar_gutka/widgets/my_list_tile.dart';
