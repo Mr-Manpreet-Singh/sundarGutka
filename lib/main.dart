@@ -22,6 +22,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+            foregroundColor: WidgetStatePropertyAll(myActionColor)
+          )
+        ),
         snackBarTheme:
             const SnackBarThemeData(contentTextStyle: mySnackBarTextStyle),
         colorSchemeSeed: myBackgroundColor,
