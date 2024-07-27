@@ -12,7 +12,7 @@ class SettingsNotifier extends StateNotifier<SettingModel> {
 
   SettingsNotifier() : super(SettingModel(
             isShowBottomButtons: true,
-            fontSize: 26,
+            fontSize: 24,
             fontWeight: FontWeight.normal.value ~/ 100,
             isPageView: false,
             language: Language.punjabi)) {
@@ -45,13 +45,13 @@ class SettingsNotifier extends StateNotifier<SettingModel> {
   }
 
   Future<void> incFontWeight() async {
-    if (state.fontWeight == 8) return;
+    if (state.fontWeight == 6) return;
     state = state.copyWith(fontWeight: state.fontWeight + 1);
     await _prefsHelper.saveSettings(state);
   }
 
   Future<void> decFontWeight() async {
-    if (state.fontWeight == 1) return;
+    if (state.fontWeight == 3) return;
     state = state.copyWith(fontWeight: state.fontWeight - 1);
     await _prefsHelper.saveSettings(state);
   }

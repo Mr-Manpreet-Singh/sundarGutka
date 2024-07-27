@@ -38,8 +38,9 @@
 
 
   // TODO ! mark in path HINDI ardas
-  
-  // Developer name choose ...
+  // singh apps $5.18 space ship
+  // Developer name choose ... == Singh APps or Singh Dev Studio
+  //  App name Gutka Sahib ( play store only..No Ads) 
   //APP logo-> Name ->splash screen(logo, title, head Cover) -> About (version + created by) -> Link Privacy Policy to website
   // Make website as to show case portfolio
   //WEB Nav bar not working properly + Mobile nav bar -> Text Edit -> scroll id hard ->
