@@ -68,9 +68,6 @@
     // Khalsa Foundation
     //    -> collected states feature to enable disable alanytics
     
-  
-
-
 // TODO Version 2
 // share | Rate URL
     //    -> More apps -> popup Play store -> searched pub:____
