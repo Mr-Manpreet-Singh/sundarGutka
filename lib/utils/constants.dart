@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const String appTitle = "Sikh Gutka Sahib";
+const String appTitle = "Gutka Sahib";
 
 // Colors
 // const Color myBackgroundColor = Color(0xFFffc14d);
@@ -13,12 +13,13 @@ const Color myScrollbarThumbColor = myBackgroundColor;
 
 //Text Styles
 const TextStyle myF18TextStyle = TextStyle(fontSize: 18);
+const TextStyle myF17TextStyle = TextStyle(fontSize: 17);
 const TextStyle myF16TextStyle = TextStyle(fontSize: 16);
 const TextStyle myF22TextStyle = TextStyle(fontSize: 22);
 const TextStyle myF14TextStyle = TextStyle(fontSize: 14);
+const TextStyle mySnackBarTextStyle =
+    TextStyle(color: myActionColor, fontSize: 16);
 const TextStyle gotextTextStyle =
     TextStyle(fontSize: 19, color: myActionColor, fontWeight: FontWeight.w500);
-const TextStyle mySnackBarTextStyle = TextStyle(
-  color: myActionColor,
-  fontSize: 16,
-);
+const TextStyle myLinkTextStyle =
+    TextStyle(color: Colors.blue, decoration: TextDecoration.underline);

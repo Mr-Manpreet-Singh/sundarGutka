@@ -20,7 +20,7 @@ class MyListTile extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(text, style: myF16TextStyle),
+            Text(text, style: myF17TextStyle),
             const Icon(Icons.arrow_forward_ios)
           ],
         ),

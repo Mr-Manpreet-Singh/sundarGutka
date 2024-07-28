@@ -8,6 +8,7 @@ import 'package:sundar_gutka/widgets/about_widget.dart';
 import 'package:sundar_gutka/widgets/language_chip.dart';
 import 'package:sundar_gutka/widgets/my_how_to_report.dart';
 import 'package:sundar_gutka/widgets/my_list_tile.dart';
+import 'package:sundar_gutka/widgets/my_privacy_policy.dart';
 import 'package:sundar_gutka/widgets/my_scaffold.dart';
 import 'package:sundar_gutka/widgets/send_feedback.dart';
 import 'package:sundar_gutka/widgets/settings_tile.dart';

@@ -37,6 +37,20 @@ dependencies:
   firebase_analytics: ^11.2.0
   flutter_riverpod: ^2.5.1
   shared_preferences: ^2.2.3
+  flutter_native_splash: ^2.4.1
+  url_launcher: ^6.3.0
+
+flutter_native_splash:
+  android: true
+  ios: true
+  color: "#FFdd55"
+  image: assets/splash_image.png
+  android_12:
+    color: "#FFdd55"
+    icon_background_color: "#FFdd55"
+    image: assets/logo_removebg.png
+
+
 
 
 
@@ -72,8 +86,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/launcher_icon.png
+    - assets/logo.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

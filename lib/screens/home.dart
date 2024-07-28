@@ -5,6 +5,7 @@ import 'package:sundar_gutka/screens/pathscreen.dart';
 import 'package:sundar_gutka/screens/setting.dart';
 import 'package:sundar_gutka/data/path_map.dart';
 import 'package:sundar_gutka/utils/constants.dart';
+import 'package:sundar_gutka/widgets/settings_tile.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
@@ -20,17 +21,17 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  void navigateToSettings(context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const SettingScreen(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    void navigateToSettings() {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const SettingScreen(),
-        ),
-      );
-    }
-
     return PopScope(
       onPopInvoked: (didPop) {
         showExitConfirmationDialog(context);
@@ -40,7 +41,7 @@ class HomeScreen extends StatelessWidget {
         appBar: AppBar(
           actions: [
             IconButton(
-              onPressed: navigateToSettings,
+              onPressed: () => navigateToSettings(context),
               icon: const Icon(Icons.settings),
               color: myActionColor,
             ),
@@ -50,19 +51,30 @@ class HomeScreen extends StatelessWidget {
           centerTitle: true,
           title: const Text(appTitle),
         ),
-        body: ListView.builder(
-          itemCount: pathList.length,
-          itemBuilder: (context, index) {
-            return ListTile(
-              iconColor: myBackgroundColorDark,
-              leading: const Icon(Icons.double_arrow),
-              title: Text(
-                pathList[index],
-                style: myF22TextStyle,
+        body: Column(
+          children: [
+            SizedBox(height: 20),
+            SettingsTile(
+              child: Text("Kindly cover your head",
+                  style: myF18TextStyle, textAlign: TextAlign.center),
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: pathList.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    iconColor: myBackgroundColorDark,
+                    leading: const Icon(Icons.double_arrow),
+                    title: Text(
+                      pathList[index],
+                      style: myF22TextStyle,
+                    ),
+                    onTap: () => _onPress(context, pathList[index]),
+                  );
+                },
               ),
-              onTap: () => _onPress(context, pathList[index]),
-            );
-          },
+            ),
+          ],
         ),
       ),
     );

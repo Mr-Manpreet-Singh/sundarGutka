@@ -35,7 +35,7 @@ class SharedPrefsHelper {
 
   Future<SettingModel> loadSettings() async {
     final prefs = await SharedPreferences.getInstance();
-    final isPageView = prefs.getBool(keyIsPageView) ?? true;
+    final isPageView = prefs.getBool(keyIsPageView) ?? false;
     final isShowBottomButtons = prefs.getBool(keyIsShowBottomButtons) ?? true;
     final fontSize = prefs.getInt(keyFontSize) ?? 26;
     final fontWeight =

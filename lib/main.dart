@@ -7,9 +7,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sundar_gutka/screens/home.dart';
 
 void main() async {
+  print(DateTime.now().toString());
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(const MyApp());
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -23,10 +23,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         textButtonTheme: const TextButtonThemeData(
-          style: ButtonStyle(
-            foregroundColor: WidgetStatePropertyAll(myActionColor)
-          )
-        ),
+            style: ButtonStyle(
+                foregroundColor: WidgetStatePropertyAll(myActionColor))),
         snackBarTheme:
             const SnackBarThemeData(contentTextStyle: mySnackBarTextStyle),
         colorSchemeSeed: myBackgroundColor,

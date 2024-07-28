@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sundar_gutka/utils/constants.dart';
 
 class AboutWidget extends StatelessWidget {
   const AboutWidget({
@@ -7,30 +8,38 @@ class AboutWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       padding: EdgeInsets.all(16),
-      child: Column(
-        children: [
-          Text("App name"),
-          SizedBox(height: 10),
-          Text("Created By: name/logo"),
-          SizedBox(height: 10),
-          Text("We welcome your comments, suggestions and corrections!"),
-          SizedBox(height: 10),
-          Text("Please respectfully cover your head and remove your shoes while usingg this app"),
-          SizedBox(height: 30),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              
-              Text("Bhul Chuk Maaf"),
-              Text("App version")
-            ],
-          )
-
-          
-        ],
-      )
+      child: Column(children: [
+        CircleAvatar(
+          radius: 50,
+          backgroundImage: AssetImage("assets/logo.png"),
+        ),
+        SizedBox(height: 10),
+        Text(
+          appTitle,
+          style: myF18TextStyle,
+        ),
+        SizedBox(height: 30),
+        Text(
+          "Kindly cover your head and remove your shoes before using this app",
+          style: myF18TextStyle,
+        ),
+        SizedBox(height: 10),
+        Text(
+          "We value your input. Please share your comments and suggestions.",
+          style: myF18TextStyle,
+        ),
+        SizedBox(height: 10),
+        Text(
+          "To get in touch directly, you can email us at: manpreetwork100@gmail.com",
+          style: myF18TextStyle,
+        ),
+        SizedBox(height: 30),
+        Text("Bhul Chuk Maaf 🙏🙏", style: myF18TextStyle,textAlign: TextAlign.start,),
+         SizedBox(height: 10),
+        Text("Designed and Developed By ~Manpreet Singh"),
+      ]),
     );
   }
 }
