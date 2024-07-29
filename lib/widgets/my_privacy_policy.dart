@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:sundar_gutka/utils/constants.dart';
+import 'package:sundar_gutka/utils/utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MyPrivacyPolicy extends StatelessWidget {
@@ -8,11 +9,8 @@ class MyPrivacyPolicy extends StatelessWidget {
     super.key,
   });
 
-
-    void _launchURL(String url) async {
-
-     String urlString = 'https://www.example.com';
-Uri uri = Uri.parse(urlString);
+  void _launchURL(String url) async {
+    Uri uri = Uri.parse(url);
 
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri);
@@ -20,6 +18,9 @@ Uri uri = Uri.parse(urlString);
       throw 'Could not launch $url';
     }
   }
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -92,9 +93,10 @@ Uri uri = Uri.parse(urlString);
             TextSpan(
               text: 'Google Analytics Policy\n',
               style: myLinkTextStyle,
-              recognizer: TapGestureRecognizer()..onTap = () {
-                      _launchURL('https://policies.google.com/privacy');
-                    },
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  _launchURL('https://policies.google.com/privacy');
+                },
             ),
             TextSpan(
               text: 'Google Admob Privacy Policy\n',
@@ -125,7 +127,7 @@ Uri uri = Uri.parse(urlString);
               style: myLinkTextStyle,
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
-                  _launchURL('https://www.facebook.com/about/privacy/');
+                  _launchURL('https://www.facebook.com/about/privacy');
                 },
             ),
             TextSpan(
@@ -158,7 +160,15 @@ Uri uri = Uri.parse(urlString);
             ),
             TextSpan(
               text:
-                  'If you have any questions regarding the Privacy Policy, please contact us at the following email address: - manpreetwork100@gmail.com ',
+                  'If you have any questions regarding the Privacy Policy, please contact us at the following email address: - ',
+            ),
+            TextSpan(
+              text: 'manpreetwork100@gmail.com ',
+              style: myLinkTextStyle,
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  Util.openEmail();
+                },
             ),
           ],
         ),

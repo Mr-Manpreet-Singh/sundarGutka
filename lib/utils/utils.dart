@@ -3,27 +3,50 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:sundar_gutka/data/model.dart';
 import 'package:sundar_gutka/data/path_map.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 abstract class Util {
   const Util();
 
-  static Future<bool> hasInternetConnection(context) async {
-      try {
-        final result = await InternetAddress.lookup('google.com');
-        return result.isNotEmpty;
-      // ignore: unused_catch_clause
-      } on SocketException catch (e) {
-        if (context.mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: const Text("Failed: Check Internet and Try Again"),
-              backgroundColor: Colors.red[400],
-            ),
-          );
-        }
-        return false;
-      }
+  static Future<void> openEmail() async {
+    final Uri params = Uri(
+      scheme: 'mailto',
+      path: 'manpreetwork100@gmail.com',
+      query: _encodeQueryParameters(<String, String>{
+        'subject': 'Mail Regarding Gutka Sahib App',
+        'body': 'I would like to tell you that the app...',
+      }),
+    );
+
+    if (!await launchUrl(params)) {
+      throw Exception('Could not launch email');
     }
+  }
+
+  static String? _encodeQueryParameters(Map<String, String> params) {
+    return params.entries
+        .map((MapEntry<String, String> e) =>
+            '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+        .join('&');
+  }
+
+  static Future<bool> hasInternetConnection(context) async {
+    try {
+      final result = await InternetAddress.lookup('google.com');
+      return result.isNotEmpty;
+      // ignore: unused_catch_clause
+    } on SocketException catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: const Text("Failed: Check Internet and Try Again"),
+            backgroundColor: Colors.red[400],
+          ),
+        );
+      }
+      return false;
+    }
+  }
 
   static String sampleText(Language lang) {
     switch (lang) {
@@ -90,6 +113,4 @@ abstract class Util {
 
     return result;
   }
-
-  
 }

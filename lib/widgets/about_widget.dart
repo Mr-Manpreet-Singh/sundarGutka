@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sundar_gutka/utils/constants.dart';
+import 'package:sundar_gutka/utils/utils.dart';
 
 class AboutWidget extends StatelessWidget {
   const AboutWidget({
@@ -32,9 +33,17 @@ class AboutWidget extends StatelessWidget {
         ),
         SizedBox(height: 10),
         Text(
-          "To get in touch directly, you can email us at: manpreetwork100@gmail.com",
+          "To get in touch directly, you can email us at: ",
           style: myF18TextStyle,
         ),
+        TextButton( 
+          
+              child:Text( 'manpreetwork100@gmail.com ',
+              style: myLinkTextStyle,),
+             onPressed: () {
+                  Util.openEmail();
+                },
+            ),
         SizedBox(height: 30),
         Text("Bhul Chuk Maaf 🙏🙏", style: myF18TextStyle,textAlign: TextAlign.start,),
          SizedBox(height: 10),

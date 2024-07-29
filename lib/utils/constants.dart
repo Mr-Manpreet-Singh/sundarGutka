@@ -22,4 +22,4 @@ const TextStyle mySnackBarTextStyle =
 const TextStyle gotextTextStyle =
     TextStyle(fontSize: 19, color: myActionColor, fontWeight: FontWeight.w500);
 const TextStyle myLinkTextStyle =
-    TextStyle(color: Colors.blue, decoration: TextDecoration.underline);
+    TextStyle(color: Colors.blue, fontSize: 16, decoration: TextDecoration.underline,);
