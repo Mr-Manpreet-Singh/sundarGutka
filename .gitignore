@@ -47,3 +47,4 @@ app.*.map.json
 android/app/google-services.json
 lib/learnings/analytics
 lib/utils/tempCodeRunnerFile.dart
+key/upload-keystore.jks
