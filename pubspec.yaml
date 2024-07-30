@@ -34,21 +34,21 @@ dependencies:
   cupertino_icons: ^1.0.6
   cloud_firestore: ^5.1.0
   firebase_core: ^3.2.0
-  firebase_analytics: ^11.2.0
   flutter_riverpod: ^2.5.1
   shared_preferences: ^2.2.3
-  flutter_native_splash: ^2.4.1
   url_launcher: ^6.3.0
+  # flutter_native_splash: ^2.4.1
+  # firebase_analytics: ^11.2.0
 
-flutter_native_splash:
-  android: true
-  ios: true
-  color: "#FFdd55"
-  image: assets/splash_image.png
-  android_12:
-    color: "#FFdd55"
-    icon_background_color: "#FFdd55"
-    image: assets/logo_removebg.png
+# flutter_native_splash:
+#   android: true
+#   ios: true
+#   color: "#FFdd55"
+#   image: assets/splash_image.png
+#   android_12:
+#     color: "#FFdd55"
+#     icon_background_color: "#FFdd55"
+#     image: assets/logo_removebg.png
 
 
 
@@ -61,11 +61,11 @@ dev_dependencies:
     sdk: flutter
   flutter_launcher_icons: ^0.13.1
 
-flutter_launcher_icons:
-  image_path: "assets/launcher_icon.png"
-  android: true
-  ios: true
-  remove_alpha_ios: true
+# flutter_launcher_icons:
+#   image_path: "assets/launcher_icon.png"
+#   android: true
+#   ios: true
+#   remove_alpha_ios: true
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

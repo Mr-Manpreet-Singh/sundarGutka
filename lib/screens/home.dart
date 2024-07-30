@@ -53,8 +53,8 @@ class HomeScreen extends StatelessWidget {
         ),
         body: Column(
           children: [
-            SizedBox(height: 20),
-            SettingsTile(
+            const SizedBox(height: 20),
+            const SettingsTile(
               child: Text("Kindly cover your head",
                   style: myF18TextStyle, textAlign: TextAlign.center),
             ),

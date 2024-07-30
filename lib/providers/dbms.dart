@@ -1,10 +1,9 @@
-import 'package:firebase_analytics/firebase_analytics.dart';
+// import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sundar_gutka/data/model.dart';
 
 class SharedPrefsHelper {
-  final FirebaseAnalytics fAnalytics = FirebaseAnalytics.instance;
 
   static const String keyIsPageView = 'isPageView';
   static const String keyIsShowBottomButtons = 'isShowBottomButtons';
@@ -20,17 +19,18 @@ class SharedPrefsHelper {
     await prefs.setInt(keyFontWeight, settings.fontWeight);
     await prefs.setString(keyLanguage, settings.language.toString());
 
-    // Firebase Analytics
-    fAnalytics.setAnalyticsCollectionEnabled(true);
+    // Firebase Analytics (commented out to safeguard app from termination)
 
-    await fAnalytics.logEvent(name: 'user_settings', parameters: {
+  // final FirebaseAnalytics fAnalytics = FirebaseAnalytics.instance;
+    // fAnalytics.setAnalyticsCollectionEnabled(true);
+    // await fAnalytics.logEvent(name: 'user_settings', parameters: {
       
-      "isShowBottomButtons": settings.isShowBottomButtons.toString(),
-      "fontSize": settings.fontSize.toString(),
-      "fontWeight": settings.fontWeight.toString(),
-      "isPageView": settings.isPageView.toString(),
-      "language": settings.language.toString()
-    });
+    //   "isShowBottomButtons": settings.isShowBottomButtons.toString(),
+    //   "fontSize": settings.fontSize.toString(),
+    //   "fontWeight": settings.fontWeight.toString(),
+    //   "isPageView": settings.isPageView.toString(),
+    //   "language": settings.language.toString()
+    // });
   }
 
   Future<SettingModel> loadSettings() async {
