@@ -166,6 +166,7 @@ class PathPageView extends ConsumerWidget {
 
                       final String part = bani[index];
                       String errorString = "";
+                      bool onTapPressed = false;
 
                       // return Text(
                       //   part,
@@ -179,17 +180,21 @@ class PathPageView extends ConsumerWidget {
                         part,
                         onSelectionChanged: (selection, cause) {
                           final String str = selection.textInside(part);
-                          if (str == "") return;
+                          if (str == "" && onTapPressed == false) return;
+                          onTapPressed = false;
                           errorString = str;
                         },
                         onTap: () {
                           if (errorString == "") return;
+                          onTapPressed = true;
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (context) =>
-                              MyScaffold(appBarTitle: "Report Mistake", body: SendFeedback(errorString: errorString,), )
-                                  
-                            ),
+                                builder: (context) => MyScaffold(
+                                      appBarTitle: "Report Mistake",
+                                      body: SendFeedback(
+                                        errorString: errorString,
+                                      ),
+                                    )),
                           );
                         },
                         style: TextStyle(
