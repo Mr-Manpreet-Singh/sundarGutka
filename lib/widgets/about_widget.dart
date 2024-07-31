@@ -36,18 +36,34 @@ class AboutWidget extends StatelessWidget {
           "To get in touch directly, you can email us at: ",
           style: myF18TextStyle,
         ),
-        TextButton( 
-          
-              child:const Text( 'manpreetwork100@gmail.com ',
-              style: myLinkTextStyle,),
-             onPressed: () {
-                  Util.openEmail();
-                },
-            ),
+        TextButton(
+          child: const Text(
+            'manpreetwork100@gmail.com',
+            style: myLinkTextStyle,
+          ),
+          onPressed: () {
+            Util.openEmail();
+          },
+        ),
         const SizedBox(height: 30),
-        const Text("Bhul Chuk Maaf 🙏🙏", style: myF18TextStyle,textAlign: TextAlign.start,),
-         const SizedBox(height: 10),
-        const Text("Designed and Developed By ~Manpreet Singh"),
+        const Text(
+          "Bhul Chuk Maaf 🙏🙏",
+          style: myF18TextStyle,
+          textAlign: TextAlign.start,
+        ),
+        const SizedBox(height: 10),
+        const Text(
+          "Designed and Developed By :",
+          textAlign: TextAlign.center,
+        ),
+        TextButton(
+          child: const Text(
+            '~Manpreet Singh',
+            style: myLinkTextStyle,
+          ),
+          onPressed: () =>
+              Util.launchURL('https://www.linkedin.com/in/manpreet-singh100'),
+        ),
       ]),
     );
   }

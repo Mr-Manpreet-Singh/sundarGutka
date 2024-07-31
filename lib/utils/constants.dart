@@ -13,6 +13,7 @@ const Color myScrollbarThumbColor = myBackgroundColor;
 
 //Text Styles
 const TextStyle myF18TextStyle = TextStyle(fontSize: 18);
+const TextStyle myF18BoldTextStyle = TextStyle(fontSize: 18, fontWeight: FontWeight.bold);
 const TextStyle myF17TextStyle = TextStyle(fontSize: 17);
 const TextStyle myF16TextStyle = TextStyle(fontSize: 16);
 const TextStyle myF22TextStyle = TextStyle(fontSize: 22);
@@ -22,4 +23,4 @@ const TextStyle mySnackBarTextStyle =
 const TextStyle gotextTextStyle =
     TextStyle(fontSize: 19, color: myActionColor, fontWeight: FontWeight.w500);
 const TextStyle myLinkTextStyle =
-    TextStyle(color: Colors.blue, fontSize: 16, decoration: TextDecoration.underline,);
+    TextStyle(color: Colors.blue, fontSize: 16, decoration: TextDecoration.underline,  decorationColor: Colors.blue,);

@@ -2,31 +2,34 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:sundar_gutka/utils/constants.dart';
 import 'package:sundar_gutka/utils/utils.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class MyPrivacyPolicy extends StatelessWidget {
   const MyPrivacyPolicy({
     super.key,
   });
 
-  void _launchURL(String url) async {
-    Uri uri = Uri.parse(url);
-
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
-
-
-
-
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16),
-      child: RichText(
+      child: 
+      //  Link For External Privacy Policy
+      // ElevatedButton(
+      //     child: const Row( 
+      //       mainAxisSize: MainAxisSize.min,
+      //       children: [
+      //         Text(
+      //           'Privacy Policy',
+      //           style: myLinkTextStyle,
+      //         ),
+      //         SizedBox(width: 30),
+      //         Icon(Icons.launch)
+      //       ],
+      //     ),
+      //     onPressed: () =>
+      //         Util.launchURL('https://www.linkedin.com/in/manpreet-singh100'),
+      //   ),
+      RichText(
         text: TextSpan(
           style: const TextStyle(color: Colors.black, fontSize: 16),
           children: [
@@ -36,7 +39,7 @@ class MyPrivacyPolicy extends StatelessWidget {
             ),
             const TextSpan(
               text: 'About this document\n\n',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: myF18BoldTextStyle,
             ),
             const TextSpan(
               text:
@@ -44,7 +47,7 @@ class MyPrivacyPolicy extends StatelessWidget {
             ),
             const TextSpan(
               text: 'What we don\'t collect\n\n',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: myF18BoldTextStyle,
             ),
             const TextSpan(
               text:
@@ -52,7 +55,7 @@ class MyPrivacyPolicy extends StatelessWidget {
             ),
             const TextSpan(
               text: 'What we collect\n\n',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: myF18BoldTextStyle,
             ),
             const TextSpan(
               text:
@@ -60,7 +63,7 @@ class MyPrivacyPolicy extends StatelessWidget {
             ),
             const TextSpan(
               text: 'What we store and its security\n\n',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: myF18BoldTextStyle,
             ),
             const TextSpan(
               text:
@@ -68,7 +71,7 @@ class MyPrivacyPolicy extends StatelessWidget {
             ),
             const TextSpan(
               text: 'How we use information that we collect\n\n',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: myF18BoldTextStyle,
             ),
             const TextSpan(
               text:
@@ -76,7 +79,7 @@ class MyPrivacyPolicy extends StatelessWidget {
             ),
             const TextSpan(
               text: 'What we share\n\n',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: myF18BoldTextStyle,
             ),
             const TextSpan(
               text:
@@ -84,18 +87,18 @@ class MyPrivacyPolicy extends StatelessWidget {
             ),
             const TextSpan(
               text: 'Advertising and Analytics Services Provided by Others\n\n',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: myF18BoldTextStyle,
             ),
             const TextSpan(
               text:
-                  'We offer free android apps and use 3rd party ads, offered by ‘Google Admob’ and ‘Facebook Audience Network’, to monetize our apps. Also, we use 3rd party analytics services, ‘Google Analytics’ in our case, to analyze performance and usage patterns of our android apps. Ad companies may use and collect anonymous data about your interests to customize content and advertising in our applications. Interest and location data may be linked to your device, but is not linked to your identity. Analytics companies may access anonymous data to help us understand how our services are used.\n\nThey use this data solely on our behalf. They do not share it except in aggregate form; no data is shared as to any individual user. Please refer to respective privacy policies of these 3rd party solution providers to get more details on how manage your privacy.\n',
+                  'We offer free android apps and use 3rd party ads, offered by ‘Google Admob’ and ‘Facebook Audience Network’, to monetize our apps. Also, we use 3rd party analytics services, ‘Google Analytics’ in our case, to analyze performance and usage patterns of our android apps. Ad companies may use and collect anonymous data about your interests to customize content and advertising in our applications. Interest and location data may be linked to your device, but is not linked to your identity. Analytics companies may access anonymous data to help us understand how our services are used.\n\nThey use this data solely on our behalf. They do not share it except in aggregate form; no data is shared as to any individual user. Please refer to respective privacy policies of these 3rd party solution providers to get more details on how manage your privacy.\n\n',
             ),
             TextSpan(
               text: 'Google Analytics Policy\n',
               style: myLinkTextStyle,
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
-                  _launchURL('https://policies.google.com/privacy');
+                  Util.launchURL('https://support.google.com/analytics/answer/6004245?hl=en');
                 },
             ),
             TextSpan(
@@ -103,7 +106,7 @@ class MyPrivacyPolicy extends StatelessWidget {
               style: myLinkTextStyle,
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
-                  _launchURL('https://policies.google.com/privacy');
+                  Util.launchURL('https://support.google.com/admob/answer/6128543?hl=en&ref_topic=2745287');
                 },
             ),
             TextSpan(
@@ -111,7 +114,7 @@ class MyPrivacyPolicy extends StatelessWidget {
               style: myLinkTextStyle,
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
-                  _launchURL('https://policies.google.com/privacy');
+                  Util.launchURL('https://www.google.com/intl/en/policies/privacy');
                 },
             ),
             TextSpan(
@@ -119,7 +122,7 @@ class MyPrivacyPolicy extends StatelessWidget {
               style: myLinkTextStyle,
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
-                  _launchURL('https://www.facebook.com/policies/cookies/');
+                  Util.launchURL('https://www.facebook.com/ads/manage/audience_network/publisher_tos');
                 },
             ),
             TextSpan(
@@ -127,12 +130,12 @@ class MyPrivacyPolicy extends StatelessWidget {
               style: myLinkTextStyle,
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
-                  _launchURL('https://www.facebook.com/about/privacy');
+                  Util.launchURL('https://www.facebook.com/privacy/policy');
                 },
             ),
             const TextSpan(
               text: 'App permissions\n\n',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: myF18BoldTextStyle,
             ),
             const TextSpan(
               text:
@@ -140,7 +143,7 @@ class MyPrivacyPolicy extends StatelessWidget {
             ),
             const TextSpan(
               text: 'Changes to this privacy policy\n\n',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: myF18BoldTextStyle,
             ),
             const TextSpan(
               text:
@@ -148,7 +151,7 @@ class MyPrivacyPolicy extends StatelessWidget {
             ),
             const TextSpan(
               text: 'Your acceptance of these terms\n\n',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: myF18BoldTextStyle,
             ),
             const TextSpan(
               text:
@@ -156,7 +159,7 @@ class MyPrivacyPolicy extends StatelessWidget {
             ),
             const TextSpan(
               text: 'Contacting us\n\n',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: myF18BoldTextStyle,
             ),
             const TextSpan(
               text:
