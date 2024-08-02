@@ -47,21 +47,12 @@
 // TODO
  
 //  branch merge
-  
-  // app discription
-  
-
-
-
-  // singh apps $5.18 space ship
-  //  App name Gutka Sahib ( play store only..No Ads) 
-  // Make website as to show case portfolio
-  //WEB Nav bar not working properly + Mobile nav bar -> Text Edit -> scroll id hard ->
+// app discription
 // before publishing secure the api keys ... settings file in google ...
 
 
-// package_info_plus 8.0.0 for version in app screen
-  // URL Launcher
+  // package_info_plus 8.0.0 for version in app screen
+    // URL Launcher
     //    -> Privacy policy web page  // use google sites for the same or download any site  and Terms of use
     // Terms of use
   // DATA DISCOLosures
@@ -73,6 +64,9 @@
     //    -> collected states feature to enable disable alanytics
     
 // TODO Version 2
+
+// Make website as to show case portfolio
+//WEB Nav bar not working properly + Mobile nav bar -> Text Edit -> scroll id hard ->
 //  how to report error visulas
 //  max in starting i can make it 50 max in 24hrs req from a person for feedback in order to save api....
 //  crah analytics
@@ -80,7 +74,7 @@
 //  Read about app versions
 //  privacy policy on web site
 // share | Rate URL
-    //    -> More apps -> popup Play store -> searched pub:____
+//    -> More apps -> popup Play store -> searched pub:____
 // add english
 // app Size Optimization
 // screen awake feature
