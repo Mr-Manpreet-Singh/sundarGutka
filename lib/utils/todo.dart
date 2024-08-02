@@ -42,11 +42,11 @@
 //  app logo | name | App bat Title
   // google account creation
   //  app mock ups
+//  branch merge
 
 
 // TODO
  
-//  branch merge
 // app discription
 // before publishing secure the api keys ... settings file in google ...
 
