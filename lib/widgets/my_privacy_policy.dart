@@ -43,7 +43,7 @@ class MyPrivacyPolicy extends StatelessWidget {
             ),
             const TextSpan(
               text:
-                  'Manpreet Singh Labs considers user privacy of utmost importance and takes all precautions to protect user privacy during use of our android apps. This document details privacy policy for our android apps. Please take a moment to familiarize yourself with our privacy practices.\n\n',
+                  'Manpreet Singh considers user privacy of utmost importance and takes all precautions to protect user privacy during use of our android apps. This document details privacy policy for our android apps. Please take a moment to familiarize yourself with our privacy practices.\n\n',
             ),
             const TextSpan(
               text: 'What we don\'t collect\n\n',

@@ -40,15 +40,16 @@
  // About  
   // Cover your head screen + app logo
 //  app logo | name | App bat Title
+  // google account creation
+  //  app mock ups
 
 
 // TODO
  
-  // Developer name choose ... == Singh APps or Singh Dev Studio
-  // google account creation
-  //  app mock ups
+//  branch merge
+  
   // app discription
-  // app data disclosure form
+  
 
 
 
@@ -72,6 +73,7 @@
     //    -> collected states feature to enable disable alanytics
     
 // TODO Version 2
+//  how to report error visulas
 //  max in starting i can make it 50 max in 24hrs req from a person for feedback in order to save api....
 //  crah analytics
 //  google remote config.. 
